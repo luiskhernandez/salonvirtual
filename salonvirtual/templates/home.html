@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block body %}
+    <header>
+    <div class="container">
+        <figure>
+        <img src="{{ STATIC_URL }}images/icons/Clipboard@2x.png" alt="Clipboard">
+        <figcaption> SalonVirtual </figcaption>
+        </figure>
+        <nav>
+        <ul>
+            <li><a class="btn btn-primary btn-small" href="{% url 'login' %}"> Entra a clases </a></li>
+        </ul>
+        </nav>
+    </div>    
+    </header>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="span7">
+                <figure>
+                 <img src="https://www.dozeo.com/wp-content/uploads/2013/03/macbook_new_pics2.png" alt="" />
+                </figure>
+            </div>
+            <div class="span5">
+                <hgroup>
+                <h1>Refuerza tus conocimientos</h1>
+                <h2>Mentorias personalizadas </h2>
+                </hgroup>
+                <div id="btn_pruebalo_wrapper">
+                <button class="btn btn-large btn-block btn-success"> Pruebalo YA! </button>
+                </div>
+            </div>
+        </div>
+     </div>
+</div>
+    </section>
+    <section id="features">
+    <div class="container">
+        <div class="row">
+        <div class="span3">
+            <div class="tile">
+                <img src="{{ STATIC_URL }}images/icons/Compas@2x.png" alt="Compas@2x" class="tile-image big-illustration">
+            <h3 class="tile-title">Orientado a ti.</h3>
+            <p> Ahorra tiempo y aprende más.</p>
+            </div>
+        </div>
+        <div class="span3">
+
+            <div class="tile">
+                <img src="{{ STATIC_URL }}images/icons/Compas@2x.png" alt="Compas@2x" class="tile-image big-illustration">
+            <h3 class="tile-title">Orientado a ti.</h3>
+            <p> Ahorra tiempo y aprende más.</p>
+            </div>
+        </div>
+        <div class="span3">
+
+            <div class="tile">
+                <img src="{{ STATIC_URL }}images/icons/Compas@2x.png" alt="Compas@2x" class="tile-image big-illustration">
+            <h3 class="tile-title">Orientado a ti.</h3>
+            <p> Ahorra tiempo y aprende más.</p>
+            </div>
+        </div>
+        <div class="span3">
+            
+            <div class="tile">
+                <img src="{{ STATIC_URL }}images/icons/Compas@2x.png" alt="Compas@2x" class="tile-image big-illustration">
+            <h3 class="tile-title">Orientado a ti.</h3>
+            <p> Ahorra tiempo y aprende más.</p>
+            </div>
+        </div>
+    </div>
+        </div>
+    </section>
+{% endblock body %}    

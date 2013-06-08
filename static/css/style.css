@@ -1,0 +1,15 @@
+header nav,header figure{display:inline-block;vertical-align:middle}
+header nav{width:60%;}
+header nav ul{float:right;}
+header nav ul li{list-style:none;}
+header nav ul li a{text-decoration:none}
+header figure img{width:50px}
+header figure figcaption,header figure img{display:inline-block;vertical-align:middle}
+header figure figcaption{font-size:1.5em;color:#008000;text-shadow:#beb5b5 .1em .1em .2em;-webkit-border-radius:40px;border-radius:40px}
+div#navbar_principal{background-color:#34495e}
+div#login{padding:10em 2em;text-align:center;}
+div#login .icono-login{width:100px;margin-right:2em}
+div#login .icono-login,div#login .login-form{position:none;display:inline-block}
+div#login .login-form{text-align:left;vertical-align:top}
+section#intro hgroup,section#intro #btn_pruebalo_wrapper{padding:2em}
+section#features{margin-bottom:1em;margin-top:1em;background-color:#777;padding-top:2em;padding-bottom:2em}

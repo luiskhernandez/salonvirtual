@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Portal de Mentorias</title>
+    <link rel="stylesheet" href="{{ STATIC_URL }}bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/flat-ui.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/style.css" />
+</head>
+<body>
+    {% block body %}
+    <div id="navbar_principal">
+            <div class="container navbar">
+                <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target="#nav-collapse-01"></button>
+                <div class="nav-collapse collapse" id="nav-collapse-01">
+                  <ul class="nav">
+                    <li class="active">
+                    <a href="/"> Salon Virtual </a>
+                    </li>
+                  </ul>
+                </div>
+
+            </div>
+    </div>
+    {% block content %}
+    {% endblock %}
+    {% endblock body %}
+    <footer>
+      <div class="container">
+          <div class="row">
+              
+              <div class="span7">
+                  <h3> Salón Virtual </h3>
+              </div>
+
+              <div class="span5"></div>
+          </div>
+       </div>
+    </footer>
+    
+</body>
+</html>
