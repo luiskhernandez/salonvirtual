@@ -10,7 +10,7 @@ ADMINS = (
 )
 
 MANAGERS = ADMINS
-
+LOGIN_REDIRECT_URL ="/dashboard"
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.

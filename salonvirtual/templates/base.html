@@ -18,6 +18,12 @@
                     <a href="/"> Salon Virtual </a>
                     </li>
                   </ul>
+
+                  <ul class="nav pull-right">
+                    {% if user.is_authenticated %}
+                    <li> <a href="{% url 'logout' %}"> Cerrar Sesión </a>  </li>
+                    {% endif %}
+                  </ul>
                 </div>
 
             </div>
