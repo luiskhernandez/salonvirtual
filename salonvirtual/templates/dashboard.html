@@ -1,3 +1,27 @@
 {% extends "base.html" %}
 
+{% block content %}
+<div  id="lienzo"  >
+    <div id="lienzo-inner" class="row-fluid">
+        <div class="span9">
+            Hola mundo
+        </div>
+		<div id="chat-wrapper"  class="span3">
+        <video id="localvideo" muted="true" autoplay></video>
+        <button id="activar_cam" class="btn btn-block btn-success"> Activar video </button>
+        <video id="remotevideo" muted="true" autoplay></video>
+        <button id="conectar" class="btn btn-block btn-success"> Conectar  </button>
+		</div>
+	</div>
+    <div class="push"></div>
+</div>
 
+{% endblock content %}
+
+{% block extra_js %}
+<script type="text/javascript">
+   var  ip     = "node.luiskhernandez.com";
+   var  puerto = 80;
+</script>
+<script type="text/javascript" src="{{ STATIC_URL }}js/main.js"></script>
+{% endblock extra_js %}
