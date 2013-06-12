@@ -1,4 +1,4 @@
-var socket         = new WebSocket('ws://'+ip+":"+puerto);
+var socket         = new WebSocket('ws://'+server);
 var stunServer = "stun.l.google.com:19302";
 var sourcevid = document.getElementById('localvideo');
 var remotevid = document.getElementById('remotevideo');
