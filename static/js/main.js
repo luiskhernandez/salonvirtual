@@ -185,6 +185,8 @@ chatNick.value = myMid;*/
     } else if (msg.type=='estudiante' ){
 
         useronline_estudiante(msg.data)
+    } else if (msg.type == "mover"){
+        mover(msg)
     }
   }
   function useronline_estudiante(nickname){
@@ -322,17 +324,11 @@ function toggleAudioMute() {
     }
 }
 
-function mover(){
+function mover(data){
 
-  $('iframe').contents().find('.navigate-right').click()
-  
- 
+  Reveal.slide( data.indexh, data.indexv, 0 );
 }
 function addChatMsg(id, classIdx, msg){
-  if (msg=="move"){
-        mover()
-  }else{
-
 
     var msgP = document.createElement("span");
     var idSpan = document.createElement("span");
@@ -347,7 +343,7 @@ function addChatMsg(id, classIdx, msg){
     msgP.appendChild(msgSpan);
     chatFrame.document.body.appendChild(msgP);
     chatFrame.document.body.scrollTop = 999999;
-  }
+  
 }
 
 $(function(){
@@ -356,4 +352,5 @@ $(function(){
   $("button#conectar").click(connect)
   $("button#activar_cam").click(startVideo)
   $("#colgar").click(onHangUp)
+
 })

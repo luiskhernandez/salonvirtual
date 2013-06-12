@@ -4,8 +4,13 @@
     <meta charset="UTF-8">
     <title>Portal de Mentorias</title>
     <link rel="stylesheet" href="{{ STATIC_URL }}bootstrap/css/bootstrap.css" />
-    <link rel="stylesheet" href="{{ STATIC_URL }}css/flat-ui.css" />
-    <link rel="stylesheet" href="{{ STATIC_URL }}css/style.css" />
+     <link rel="stylesheet" href="{{ STATIC_URL }}css/flat-ui.css" />
+    
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/style.css" /> 
+   <!---->
+
+    {% block extra_head %}
+    {% endblock %}
 </head>
 <body>
     {% block body %}
