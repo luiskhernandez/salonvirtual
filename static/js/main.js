@@ -103,7 +103,6 @@ chatNick.value = myMid;*/
  
   // start the connection upon user request
   function connect() {
-      console.log((!started && localStream))
     if (!started && localStream) {
       //document.getElementById('anim').style.visibility='visible';
       console.log("Creating PeerConnection.");
@@ -112,7 +111,7 @@ chatNick.value = myMid;*/
       peerConn.addStream(localStream);
       started = true;
       logg("isRTCPeerConnection: " + isRTCPeerConnection);
- 
+      $("#activar_cam").hide() 
       //create offer
       if (isRTCPeerConnection) {
         peerConn.createOffer(setLocalAndSendMessage, null, mediaConstraints);
@@ -150,6 +149,7 @@ chatNick.value = myMid;*/
         started = true;
         logg("isRTCPeerConnection: " + isRTCPeerConnection);
  
+      $("#activar_cam").hide() 
  
         if (isRTCPeerConnection) {
           //set remote description
@@ -180,8 +180,24 @@ chatNick.value = myMid;*/
     } 
     else if (msg.type === 'bye' && started) {
       onRemoteHangUp();
+    } else if (msg.type =='admin'){
+        useronline(msg.data)
+    } else if (msg.type=='estudiante' ){
+
+        useronline_estudiante(msg.data)
     }
   }
+  function useronline_estudiante(nickname){
+      $(".user_remote").html(nickname)
+      $(".estado_desconectado,.estado_conectado").toggle()
+      $(".call_options").toggle()
+  }
+
+  function useronline(nickname){
+      $(".user_remote").html(nickname)
+      $(".estado_desconectado,.estado_conectado").toggle()
+  }
+
  
   function processSignalingMessage00(message) {
     var msg = JSON.parse(message);
@@ -211,14 +227,20 @@ chatNick.value = myMid;*/
   function onRemoteHangUp() {
     logg("Remote Hang up.");
     closeSession();
+    stopVideo();
+      $(".estado_desconectado,.estado_conectado").toggle()
+    $("#activar_cam").show();
   }
  
   function onHangUp() {
     logg("Hang up.");
-    document.getElementById('anim').style.visibility='hidden';
+    //document.getElementById('anim').style.visibility='hidden';
     if (started) {
       sendMessage({type: 'bye'});
       closeSession();
+      $(".estado_desconectado,.estado_conectado").toggle()
+       stopVideo();   
+      $(".call_options").toggle()
     }
   }
  
@@ -271,6 +293,8 @@ function toggleAudioMute() {
           sourcevid.src = window.webkitURL.createObjectURL(stream);
           sourcevid.style.webkitTransform = "rotateY(180deg)";
           localStream = stream;
+          sendMessage({type:usuario, data:nickname})
+          $("#activar_cam").hide();    
           //connect()
       }
       function errorCallback(error) {
@@ -280,6 +304,7 @@ function toggleAudioMute() {
  
   function stopVideo() {
     sourcevid.src = "";
+    $("#activar_cam").show();
   }
   
   function sendChatMsg(){
@@ -330,4 +355,5 @@ $(function(){
    //startVideo()  
   $("button#conectar").click(connect)
   $("button#activar_cam").click(startVideo)
+  $("#colgar").click(onHangUp)
 })

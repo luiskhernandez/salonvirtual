@@ -7,10 +7,21 @@
             Hola mundo
         </div>
 		<div id="chat-wrapper"  class="span3">
+            <div>
+                <h2> {{ user }}  </h2> 
+            </div>
         <video id="localvideo" muted="true" autoplay></video>
-        <button id="activar_cam" class="btn btn-block btn-success"> Activar video </button>
+        <button id="activar_cam" class="btn btn-block btn-success"> Entrar al salón </button>
+        <div>
+            <h2 > <span class="user_remote" ></span>   <span class="estado_desconectado">Desconectado</span>  <span class="estado_conectado">Conectado</span>   </h2>
+        </div>
         <video id="remotevideo" autoplay></video>
-        <button id="conectar" class="btn btn-block btn-success"> Conectar  </button>
+        {% if user.is_staff %}
+        <div class="call_options">
+        <button id="conectar" class="btn btn-success"> Conectar  </button>
+        <button id="colgar" class="btn  btn-error"> Colgar  </button>
+        </div>
+        {% endif %}
 		</div>
 	</div>
     <div class="push"></div>
@@ -20,7 +31,14 @@
 
 {% block extra_js %}
 <script type="text/javascript">
+    {% if user.is_staff %}
+    var usuario = "admin"
+     {% else %}
+     var usuario = "estudiante"
+    {% endif %}
+    var nickname ="{{ user }}"
    var  server = "luiskhernandez-salonvirtualws.jit.su/";
+  // var server = "localhost:8080" 
 </script>
 <script type="text/javascript" src="{{ STATIC_URL }}js/main.js"></script>
 {% endblock extra_js %}
