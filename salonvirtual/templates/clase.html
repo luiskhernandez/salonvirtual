@@ -1,0 +1,5 @@
+{% autoescape off %}
+{% for item in presentacion.diapositivas.all %}
+    {{ item.contenido  }}
+ {% endfor %}
+ {% endautoescape %}    

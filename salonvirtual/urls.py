@@ -16,5 +16,6 @@ urlpatterns = patterns('',
     url(r'^login/$', 'django.contrib.auth.views.login',name="login"),
     url(r'^logout$','app.views.logout_',name="logout"),
     url(r'^dashboard$','app.views.dashboard',name="dashboard"),
+    url(r'^clase/(?P<id>\d+)/$','app.views.clase',name="clase"),
     url(r'^admin/', include(admin.site.urls)),
 )

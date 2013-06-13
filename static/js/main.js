@@ -112,6 +112,7 @@ chatNick.value = myMid;*/
       started = true;
       logg("isRTCPeerConnection: " + isRTCPeerConnection);
       $("#activar_cam").hide() 
+      $("#presentaciones").show()
       //create offer
       if (isRTCPeerConnection) {
         peerConn.createOffer(setLocalAndSendMessage, null, mediaConstraints);
@@ -187,6 +188,8 @@ chatNick.value = myMid;*/
         useronline_estudiante(msg.data)
     } else if (msg.type == "mover"){
         mover(msg)
+    } else if(msg.type == "cargar_clase"){
+       cargar(msg.href)
     }
   }
   function useronline_estudiante(nickname){
@@ -328,6 +331,17 @@ function mover(data){
 
   Reveal.slide( data.indexh, data.indexv, 0 );
 }
+
+function cargaryavisar(ruta){
+      cargar(ruta)
+      sendMessage({type:"cargar_clase",href:ruta})
+}
+function cargar(ruta){
+
+      $('.slides').load(ruta,function(){
+        initReveal()
+      });
+}
 function addChatMsg(id, classIdx, msg){
 
     var msgP = document.createElement("span");
@@ -346,9 +360,17 @@ function addChatMsg(id, classIdx, msg){
   
 }
 
+
 $(function(){
 
    //startVideo()  
+   $(".carga_clase").click(function(){
+      
+      cargaryavisar($(this).attr("href"))
+      $("#presentaciones").hide()
+
+      return false
+   })
   $("button#conectar").click(connect)
   $("button#activar_cam").click(startVideo)
   $("#colgar").click(onHangUp)
